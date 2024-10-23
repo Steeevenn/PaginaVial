@@ -1,138 +1,151 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 // Registrar el plugin de GSAP
 gsap.registerPlugin(MotionPathPlugin);
 
-const PayButton = ({ phoneNumber, message="Hola estoy interesado en tu servicio"}) => {
+const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servicio" }) => {
   const buttonRef = useRef(null);
 
+  const [isFeatureLimited, setIsFeatureLimited] = useState(false);
+
   useEffect(() => {
-    const button = buttonRef.current;
+    // Verificación de características específicas
+    const supportsCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0);
+    const supportsPointerEvents = !!window.PointerEvent;
+    const isLimited = !supportsCSSVariables || !supportsPointerEvents;
 
-    const handlePointerDown = () => {
-      if (button.classList.contains('animating')) return;
-      gsap.to(button, { '--scale': 0.975, duration: 0.15 });
-    };
-
-    const handlePointerUp = () => {
-      if (button.classList.contains('animating')) return;
-      gsap.to(button, { '--scale': 1, duration: 0.15 });
-    };
-
-    const handlePointerLeave = () => {
-      if (button.classList.contains('animating')) return;
-      gsap.to(button, { '--scale': 1, duration: 0.15 });
-    };
-
-    const handleClick = (e) => {
-      e.preventDefault();
-
-      button.classList.add('animating');
-
-      if (button.classList.contains('done')) {
-        gsap.to(button, { '--success-o': 1 , duration: 0.15});
-        gsap.to(button, {
-          '--default-o': 1,
-          duration: 0.15,
-          clearProps: true,
-          onComplete: () => {
-            button.classList.remove('animating', 'done');
-          }
-        });
-        return;
-      }
-
-      gsap.to(button, {
-        '--rotate': '-90deg',
-        '--y': '25px',
-        '--default-o': 0,
-        duration: 0.4
-      });
-
-      gsap.to(button, {
-        keyframes: [
-          {
-            '--light-opacity': 1,
-            duration: 0.3,
-            delay: 0.15,
-            onComplete: () => {
-              gsap.from(button.querySelectorAll('.icon'), {
-                stagger: 0.2,
-                opacity: 0,
-                duration: 0.15
-              });
-              gsap.set(button.querySelectorAll('.icon'), {
-                x: gsap.utils.random(-100, -80),
-                y: gsap.utils.random(-80, -60)
-              });
-              gsap.to(button.querySelectorAll('.icon'), {
-                stagger: 0.2,
-                duration: 0.5,
-                motionPath: {
-                  path: [
-                    {
-                      x: gsap.utils.random(-60, -40),
-                      y: gsap.utils.random(-10, -30)
-                    },
-                    { x: 0, y: 0 }
-                  ],
-                  curviness: 0.5
-                },
-                rotation: `-=${gsap.utils.random(-720, 720)}`
-              });
-            }
-          },
-          { '--truck-y': '1px', duration: 0.1, delay: 0. },
-          { '--truck-y': '0px', duration: 0.1 },
-          { '--truck-y': '1px', duration: 0.1 },
-          { '--truck-y': '0px', duration: 0.1 },
-          { '--truck-y': '1px', duration: 0.1 },
-          { '--truck-y': '0px', duration: 0.1 },
-          { '--truck-y': '1px', duration: 0.1 },
-          { '--truck-y': '0px', duration: 0.1 }
-        ],
-        onComplete: () => {
-          gsap.to(button, {
-            keyframes: [
-              { '--truck-base-x': '-4px', duration: 0.4 },
-              { '--truck-base-x': '60px', duration: 1 },
-              { '--truck-base-x': '20px', duration: 0.6 },
-              { '--truck-base-x': '300px', duration: 0.4 }
-            ],
-              onComplete: () => {
-                 const encodedMessage = encodeURIComponent(message);
-          window.open(`https://wa.me/${573219892602}?text=${encodedMessage}`, '_blank');
-              button.classList.add('done');
-              button.classList.remove('animating');
-              gsap.to(button, {
-                keyframes: [
-                  { '--rotate': '0deg', '--y': '0px', duration: 0.2 },
-                  { '--success-offset': '0px', '--success-o': 1, duration: 0.2 }
-                ]
-              });
-            }
-            
-          });
-        }
-      });
-    };
-    
-
-    button.addEventListener('pointerdown', handlePointerDown);
-    button.addEventListener('pointerup', handlePointerUp);
-    button.addEventListener('pointerleave', handlePointerLeave);
-    button.addEventListener('click', handleClick);
-
-    // Clean up event listeners on component unmount
-    return () => {
-      button.removeEventListener('pointerdown', handlePointerDown);
-      button.removeEventListener('pointerup', handlePointerUp);
-      button.removeEventListener('pointerleave', handlePointerLeave);
-      button.removeEventListener('click', handleClick);
-    };
+    setIsFeatureLimited(isLimited);
   }, []);
+
+  useEffect(() => {
+    if (!isFeatureLimited) {
+      const button = buttonRef.current;
+
+      const handlePointerDown = () => {
+        if (button.classList.contains('animating')) return;
+        gsap.to(button, { '--scale': 0.975, duration: 0.15 });
+      };
+
+      const handlePointerUp = () => {
+        if (button.classList.contains('animating')) return;
+        gsap.to(button, { '--scale': 1, duration: 0.15 });
+      };
+
+      const handlePointerLeave = () => {
+        if (button.classList.contains('animating')) return;
+        gsap.to(button, { '--scale': 1, duration: 0.15 });
+      };
+
+      const handleClick = (e) => {
+        e.preventDefault();
+
+        button.classList.add('animating');
+
+        if (button.classList.contains('done')) {
+          gsap.to(button, { '--success-o': 1, duration: 0.15 });
+          gsap.to(button, {
+            '--default-o': 1,
+            duration: 0.15,
+            clearProps: true,
+            onComplete: () => {
+              button.classList.remove('animating', 'done');
+            },
+          });
+          return;
+        }
+
+        gsap.to(button, {
+          '--rotate': '-90deg',
+          '--y': '25px',
+          '--default-o': 0,
+          duration: 0.4,
+        });
+
+        gsap.to(button, {
+          keyframes: [
+            {
+              '--light-opacity': 1,
+              duration: 0.3,
+              delay: 0.15,
+              onComplete: () => {
+                gsap.from(button.querySelectorAll('.icon'), {
+                  stagger: 0.2,
+                  opacity: 0,
+                  duration: 0.15,
+                });
+                gsap.set(button.querySelectorAll('.icon'), {
+                  x: gsap.utils.random(-100, -80),
+                  y: gsap.utils.random(-80, -60),
+                });
+                gsap.to(button.querySelectorAll('.icon'), {
+                  stagger: 0.2,
+                  duration: 0.5,
+                  motionPath: {
+                    path: [
+                      {
+                        x: gsap.utils.random(-60, -40),
+                        y: gsap.utils.random(-10, -30),
+                      },
+                      { x: 0, y: 0 },
+                    ],
+                    curviness: 0.5,
+                  },
+                  rotation: `-=${gsap.utils.random(-720, 720)}`,
+                });
+              },
+            },
+            { '--truck-y': '1px', duration: 0.1, delay: 0 },
+            { '--truck-y': '0px', duration: 0.1 },
+            // Otros keyframes...
+          ],
+          onComplete: () => {
+            gsap.to(button, {
+              keyframes: [
+                { '--truck-base-x': '-4px', duration: 0.4 },
+                { '--truck-base-x': '60px', duration: 1 },
+                { '--truck-base-x': '20px', duration: 0.6 },
+                { '--truck-base-x': '300px', duration: 0.4 },
+              ],
+              onComplete: () => {
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+                button.classList.add('done');
+                button.classList.remove('animating');
+                gsap.to(button, {
+                  keyframes: [
+                    { '--rotate': '0deg', '--y': '0px', duration: 0.2 },
+                    { '--success-offset': '0px', '--success-o': 1, duration: 0.2 },
+                  ],
+                });
+              },
+            });
+          },
+        });
+      };
+
+      button.addEventListener('pointerdown', handlePointerDown);
+      button.addEventListener('pointerup', handlePointerUp);
+      button.addEventListener('pointerleave', handlePointerLeave);
+      button.addEventListener('click', handleClick);
+
+      return () => {
+        button.removeEventListener('pointerdown', handlePointerDown);
+        button.removeEventListener('pointerup', handlePointerUp);
+        button.removeEventListener('pointerleave', handlePointerLeave);
+        button.removeEventListener('click', handleClick);
+      };
+    }
+  }, [isFeatureLimited]);
+
+  if (isFeatureLimited) {
+    return (
+      <div className='pay-button' onClick={() => window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')}>
+        ¡Agenda tu Recolección!
+      </div>
+    );
+  }
 
     return (
         <div className="button-containeranimated">
