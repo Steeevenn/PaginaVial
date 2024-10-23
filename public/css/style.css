@@ -1137,10 +1137,9 @@ label {
   transform-style: preserve-3d;
   transform: translateY(var(--y)) rotateX(var(--rotate)) scale(var(--scale))
     translateZ(0);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 1.8); /* Agrega un brillo alrededor del botón */
-  will-change: transform;
-  transition: transform 1s ease-in-out; /* Aquí '1s' indica 1 segundo, puedes ajustarlo */
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 1.8); /* brillo al rededr del boton */
+ will-change: transform;
+  transition: transform 3s ease; /* tiempo de transisicion */
   &:before {
     content: "";
     position: absolute;
