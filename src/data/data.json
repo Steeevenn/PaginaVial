@@ -1,0 +1,219 @@
+{
+  "Header": {
+    "title": "",
+    "paragraph": ""
+  },
+  "About": {
+    "paragraph": "VIAL LOGISTIC es una empresa a nivel internacional que ayuda y proporciona un servicio personalizado de envíos a la comunidad por medio de alianzas estratégicas con grandes operadores, siendo así uno de los mayores consólidadores de envíos internacionales para FEDEX, DHL y UPS contando con recolecciones, empaque y despacho bajo la modalidad de mensajería y/o paquetería vía courier o carga internacional",
+    "Why": [
+      "Productos de belleza",
+      "Zapatos",
+      "Ropa",
+      "Artesanias",
+      "Repuestos",
+      "Tecnologia"
+    ],
+    "Why2": [
+      "Alimentos perecederos",
+      "Animales",
+      "Perfumes",
+      "Dinero",
+      "Armas",
+      "Licor"
+
+        ]
+  },
+  "Gallery": [
+    {
+      "title": "Atención personalizada según tus necesidades",
+      "smallImage": "img/portfolio/LogoVial1.jpg"
+    },
+ 
+    {
+      "title": "Recolección en la recepción del remitente",
+      "smallImage": "img/portfolio/EnvioVan.jpg"
+    },
+
+     {
+      "title": "Inventario y embalaje",
+      "smallImage": "img/portfolio/LogoVial3.jpg"
+    },
+    {
+      "title": "Documentación necesaria  para tu importación o exportación",
+      "smallImage": "img/portfolio/documentacion.jpg"
+    },
+   
+   
+    {
+      "title": "Entrega al aliado seleccionado",
+      "smallImage": "img/portfolio/vuelo.jpg"
+    },
+    {
+      "title": "Entregas seguras y en tiempo express",
+      "smallImage": "img/portfolio/LogoVial6.jpg"
+    }
+  ],
+  "Services": [
+      {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "E-commerce",
+      "text": "Apoyamos el crecimiento de los e-commerces brindándoles servicios exclusivos y costos que se adaptan a su modelo de negocio."
+    },
+    {
+      "icon": "fa fa-earth-americas",
+      "name": "Exportaciones",
+  "text":"Ayudamos a comercializar, expandir, monetizar y dar a conocer tus productos en el exterior."
+    },
+    {
+      "icon":"fa fa-boxes-packing",
+     "name": "Casillero Internacional",
+      "text": "Facilitamos tus compras internacionales con nuestro servicio de casillero, obtén una dirección en EEUU para consolidar tus paquetes y enviarlos a Colombia, de esta manera ahorras en tus envíos y simplificas tus compras internacionales."
+    },
+    {
+      "icon": "fa fa-plane-arrival",
+      "name": "Importaciones",
+      "text": "Podrás realizar el envío de tus compras o envíos personales de bienes para uso en territorio nacional."
+    },
+    {
+      "icon": "fa fa-truck-fast",
+      "name": "Entrega Express",
+      "text": "Te ofrecemos un servicio más rápido sin tener que pagar más."
+    },
+      {
+      "icon": "fa fa-dolly",
+      "name": "Carga Nacional",
+      "text": "Contamos con alianzas estratégicas que nos permiten ofrecer un menor costo en tus envíos nacionales."
+    }
+   
+  
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "Calle 10 # 81b-55 Castilla, Bogota",
+    "phone":"+57 3125602484",
+    "email": "vialogistic2022@gmail.com",
+    "instagram": "https://www.instagram.com/viallogistic/",
+    "tiktok": "https://www.tiktok.com/@vialogistic.com.co",
+    "facebook": "https://www.facebook.com/people/Vial-Logistic/100087785080149/"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments",
+      "title": "Atencion personalizada",
+  "text": "Nos aseguramos de atender todas tus dudas dándote el soporte necesario antes y durante el proceso de tu envío y entrega. "    },
+    {
+      "icon": "fa fa-dollar",
+      "title": "Tarifas competitivas",
+  "text": "Te brindamos tarifas altamente competitivas para tus envíos, sin comprometer la calidad del servicio adquirido." },
+    {
+      "icon": "fa fa-plane",
+      "title": "Tiempos de entrega eficientes",
+      "text": "Contamos con un sistema optimizado para garantizar que tus envíos lleguen a tiempo y en perfectas condiciones. "    },
+    {
+      "icon": "fa fa-truck",
+      "title": "Recoleccion y Embalaje sin costo",
+  "text": "Realizamos la recolección de tus envíos y te ofrecemos embalaje profesional y seguro para proteger el contenido optimizando la entrega.  "    }
+  ],
+  
+"Reviews": [
+    {
+      "reviewerName": "María Gómez",
+      "reviewText": "Buena atención, aunque el tiempo de entrega podría mejorar.",
+      "reviewDate": "10 de Agosto, 2024",
+      "rating": "5"
+    },
+    {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    },
+      {
+      "reviewerName": "Simon rodriguez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    },
+      {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    } ,
+    {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    }, {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    }, {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    }, {
+      "reviewerName": "Carlos Sánchez",
+      "reviewText": "El producto llegó en perfectas condiciones, recomendado.",
+      "reviewDate": "5 de Agosto, 2024",
+      "rating": "5"
+    }
+  ]
+}
+
