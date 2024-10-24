@@ -8,19 +8,21 @@ gsap.registerPlugin(MotionPathPlugin);
 const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servicio" }) => {
   const buttonRef = useRef(null);
 
-  const [isFeatureLimited, setIsFeatureLimited] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
+
 
   useEffect(() => {
-    // Verificación de características específicas
-    const supportsCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0);
-    const supportsPointerEvents = !!window.PointerEvent;
-    const isLimited = !supportsCSSVariables || !supportsPointerEvents;
 
-    setIsFeatureLimited(isLimited);
-  }, []);
+    const userAgent = window.navigator.userAgent;
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(userAgent);
+    setIsSafari(isSafariBrowser);
+  },[]);
+ 
 
   useEffect(() => {
-    if (!isFeatureLimited) {
+
+    if (!isSafari) {
+
       const button = buttonRef.current;
 
       const handlePointerDown = () => {
@@ -51,7 +53,7 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
             clearProps: true,
             onComplete: () => {
               button.classList.remove('animating', 'done');
-            },
+            }
           });
           return;
         }
@@ -60,7 +62,7 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
           '--rotate': '-90deg',
           '--y': '25px',
           '--default-o': 0,
-          duration: 0.4,
+          duration: 0.4
         });
 
         gsap.to(button, {
@@ -73,11 +75,11 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
                 gsap.from(button.querySelectorAll('.icon'), {
                   stagger: 0.2,
                   opacity: 0,
-                  duration: 0.15,
+                  duration: 0.15
                 });
                 gsap.set(button.querySelectorAll('.icon'), {
                   x: gsap.utils.random(-100, -80),
-                  y: gsap.utils.random(-80, -60),
+                  y: gsap.utils.random(-80, -60)
                 });
                 gsap.to(button.querySelectorAll('.icon'), {
                   stagger: 0.2,
@@ -86,19 +88,24 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
                     path: [
                       {
                         x: gsap.utils.random(-60, -40),
-                        y: gsap.utils.random(-10, -30),
+                        y: gsap.utils.random(-10, -30)
                       },
-                      { x: 0, y: 0 },
+                      { x: 0, y: 0 }
                     ],
-                    curviness: 0.5,
+                    curviness: 0.5
                   },
-                  rotation: `-=${gsap.utils.random(-720, 720)}`,
+                  rotation: `-=${gsap.utils.random(-720, 720)}`
                 });
-              },
+              }
             },
-            { '--truck-y': '1px', duration: 0.1, delay: 0 },
+            { '--truck-y': '1px', duration: 0.1, delay: 0. },
             { '--truck-y': '0px', duration: 0.1 },
-            // Otros keyframes...
+            { '--truck-y': '1px', duration: 0.1 },
+            { '--truck-y': '0px', duration: 0.1 },
+            { '--truck-y': '1px', duration: 0.1 },
+            { '--truck-y': '0px', duration: 0.1 },
+            { '--truck-y': '1px', duration: 0.1 },
+            { '--truck-y': '0px', duration: 0.1 }
           ],
           onComplete: () => {
             gsap.to(button, {
@@ -106,30 +113,33 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
                 { '--truck-base-x': '-4px', duration: 0.4 },
                 { '--truck-base-x': '60px', duration: 1 },
                 { '--truck-base-x': '20px', duration: 0.6 },
-                { '--truck-base-x': '300px', duration: 0.4 },
+                { '--truck-base-x': '300px', duration: 0.4 }
               ],
               onComplete: () => {
                 const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+                window.open(`https://wa.me/${573219892602}?text=${encodedMessage}`, '_blank');
                 button.classList.add('done');
                 button.classList.remove('animating');
                 gsap.to(button, {
                   keyframes: [
                     { '--rotate': '0deg', '--y': '0px', duration: 0.2 },
-                    { '--success-offset': '0px', '--success-o': 1, duration: 0.2 },
-                  ],
+                    { '--success-offset': '0px', '--success-o': 1, duration: 0.2 }
+                  ]
                 });
-              },
+              }
+            
             });
-          },
+          }
         });
       };
+    
 
       button.addEventListener('pointerdown', handlePointerDown);
       button.addEventListener('pointerup', handlePointerUp);
       button.addEventListener('pointerleave', handlePointerLeave);
       button.addEventListener('click', handleClick);
 
+      // Clean up event listeners on component unmount
       return () => {
         button.removeEventListener('pointerdown', handlePointerDown);
         button.removeEventListener('pointerup', handlePointerUp);
@@ -137,16 +147,22 @@ const PayButton = ({ phoneNumber, message = "Hola estoy interesado en tu servici
         button.removeEventListener('click', handleClick);
       };
     }
-  }, [isFeatureLimited]);
-
-  if (isFeatureLimited) {
-    return (
-      <div className='pay-button' onClick={() => window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')}>
+  });
+  
+if (isSafari) {
+  return (
+    <div className="button-containeranimated">
+      <a 
+        href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`}
+        className='safari-pay-button'
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         ¡Agenda tu Recolección!
-      </div>
-    );
-  }
-
+      </a>
+    </div>
+  );
+}
     return (
         <div className="button-containeranimated">
     <button className="pay-button " ref={buttonRef}>

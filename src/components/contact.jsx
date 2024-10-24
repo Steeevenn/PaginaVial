@@ -8,12 +8,13 @@ const initialState = {
   name: "",
   email: "",
   message: "",
-  telefono: "",  
+  telefono: "", 
+  telefono2: "",
 };
 
 
 export const Contact = (props) => {
-  const [{ name, email, message, telefono }, setState] = useState(initialState);
+  const [{ name, email, message, telefono , telefono2}, setState] = useState(initialState);
 
   
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ export const Contact = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message, telefono);
+    console.log(name, email, message, telefono, telefono2);
 
     emailjs
       .sendForm("service_s1rz2xg", "template_l8l4zbg", e.target, "JW85GpWlYLwUwu-KL")
@@ -138,7 +139,12 @@ export const Contact = (props) => {
                   <span>
                     <i className="fa fa-phone"></i> Teléfono
                   </span>
-                  {props.data ? props.data.phone : "loading"}
+                  {props.data ? (
+                    <>
+                      {props.data.phone}<br />
+                      {props.data.phone2}
+                    </>
+                     ): "loading"}
                 </p>
               </div>
               <div className="contact-item">

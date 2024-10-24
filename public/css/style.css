@@ -1077,7 +1077,6 @@ label {
 }
 
 
-/* Añade estilos para los botones */
 .carousel-button {
   cursor: pointer;
   background-color: #ffd700; /* Botón dorado */
@@ -1088,9 +1087,32 @@ label {
   font-size: 16px;
   color: white;
 }
+/* Pay Button*/
 
-
-/*boton animado*/
+.safari-pay-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 0;
+  width: 260px;
+  border-radius: 27px;
+  background: #58a697;
+  color: #f6f6f6;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: arial;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.8);
+  position: relative;
+  top: 255px;
+  
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+    color: #3D746A;
+  }
+}
 
 .pay-button {
   top: 255px;
@@ -1135,10 +1157,12 @@ label {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   transform-style: preserve-3d;
+   -webkit-transform: scale(var(--scale)) rotate(var(--rotate)) translateY(var(--y));
   transform: translateY(var(--y)) rotateX(var(--rotate)) scale(var(--scale))
     translateZ(0);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 1.8); /* brillo al rededr del boton */
  will-change: transform;
+   -webkit-transition: transform 3s ease;
   transition: transform 3s ease; /* tiempo de transisicion */
   &:before {
     content: "";
@@ -1193,6 +1217,7 @@ label {
     right: -40px;
     bottom: 0px;
     overflow: hidden;
+       -webkit-transform: translateY(var(--truck-wrapper-y)) rotateX(90deg);
     transform: translateY(var(--truck-wrapper-y)) rotateX(90deg);
     will-change: transform;
     transition: transform 1s ease-in-out; /* Aquí '1s' indica 1 segundo, puedes ajustarlo */
