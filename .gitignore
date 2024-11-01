@@ -21,3 +21,18 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+echo '
+# Additional build files
+main.*.js
+*.js.map
+/dist
+
+# Editor files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?' >> .gitignore
