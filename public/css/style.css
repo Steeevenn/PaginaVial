@@ -1,6 +1,6 @@
 body,
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   color: #777;
@@ -11,7 +11,7 @@ html {
 h2,
 h3,
 h4 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 h2 {
   text-transform: uppercase;
@@ -190,7 +190,7 @@ hr {
 }
 
 #menu a.navbar-brand {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #58a697;
@@ -199,7 +199,7 @@ hr {
 }
 
 #menu .navbar-nav .nav-link {
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   color: #cfd6d2;
   font-size: 15px;
@@ -298,7 +298,7 @@ hr {
   color: #266d2f;
 }
 .btn-custom {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   color: #fff;
   background-color: #58a697;
@@ -383,7 +383,7 @@ a:focus,
 
 .intro h1 {
   display: flex;
-  font-family: "Roboto", Sans-serif;
+  font-family: "Poppins", Sans-serif;
   color: #f3f3f3;
   font-size: 70px;
   font-weight: 600;
@@ -693,9 +693,10 @@ header .intro-text {
 /* Gallery */
 
 #portfolio {
-  background: url(../img/Mapa.jpg);
+  background: url(../img/Mapa.jpg) no-repeat center center;
   background-size: cover;
   padding: 50px 0;
+
 }
 
 .gallery-grid {
@@ -703,6 +704,7 @@ header .intro-text {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap:50px;
   padding: 0 50px;
+  
 }
 
 .gallery-item {
@@ -711,12 +713,11 @@ header .intro-text {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-
+  opacity: 0.9;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05);
- 
+ opacity: 1;
 }
 
 .gallery-item img {
@@ -725,33 +726,45 @@ header .intro-text {
   display: block;
   border-radius: 15px 15px 0 0;
 
-  
 }
 
 .text-container {
   padding: 15px;
-  text-align: center;
-  background-color: white;
   border-radius: 0 0 15px 15px;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  background-color: #e4e5ec;
+  word-spacing:normal;
+
+
+  
 }
 
 .texto-Imagenes {
-  color: #06c893;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
   font-size: 20px;
+  font-weight:550;
+  color: #104C7F;
+  font-family: "Poppins", sans-serif; /* Cambia "Roboto" por "Open Sans" si lo prefieres */
   margin-bottom: 10px;
+text-align: justify;
+word-spacing:normal;
 }
 
 .contact-button {
+  text-align: center; 
   padding: 10px 20px;
-  background-color: #06c893;
+  background-color: #45a794;
   color: white;
+  font-family: "Poppins", Sans-serif;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.3s;
+  font-weight:800;
+  filter: brightness(1.1);
+  width: 300px;
+  height: 50px;
+  max-width: 300px;
 }
 
 .contact-button:hover {
@@ -912,7 +925,7 @@ header .intro-text {
 label {
   font-size: 12px;
   font-weight: 400;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   float: left;
 }
 #contact .form-control {
@@ -1106,7 +1119,7 @@ label {
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
-  font-family: arial;
+  font-family: Poppins;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.8);
   position: relative;
@@ -1190,7 +1203,7 @@ label {
     font-size: 20px;
     line-height: 24px;
     opacity: var(--o, var(--default-o));
-    font-family: arial;
+    font-family: "Poppins", sans-serif;
   }
   .success {
     --o: var(--success-o);
