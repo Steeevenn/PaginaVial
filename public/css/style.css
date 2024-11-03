@@ -327,12 +327,11 @@ header .intro-text {
     width: 100%;
     display: flex;
     justify-content: center;
-    text-align: center;
-    /* Asegura que el botón ocupe el 80% del ancho disponible */
+    text-align: top;
   }
 
   .button-containeranimated a {
-    font-size: 1px; /* Ajusta el tamaño del texto del botón */
+    font-size: 10px; /* Ajusta el tamaño del texto del botón */
     padding: 10px 20px; /* Reduce el padding para disminuir la altura */
     width: auto; /* Asegura que el botón ocupe el 100% del contenedor */
     line-height: 1.2; /* Ajusta la altura de línea para controlar la altura del texto */

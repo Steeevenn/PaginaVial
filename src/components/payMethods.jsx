@@ -33,7 +33,7 @@ const PaymentMethodsSection = () => {
   ];
 
   return (
-    <div className="payment-methods-section">
+    <div id="metodos-pago" className="payment-methods-section ">
       <h2 className="section-title">Métodos de Pago</h2>
       <p className="section-description">
         Ofrecemos múltiples opciones de pago seguras para tu conveniencia
