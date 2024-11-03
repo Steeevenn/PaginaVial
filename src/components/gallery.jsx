@@ -1,9 +1,7 @@
 import { Image } from "./image";
-import { useState, useEffect } from "react";
 
 export const Gallery = (props) => {
-  const [visibleItems, setVisibleItems] = useState([]);
-  const [activeItem, setActiveItem] = useState(null);
+
 
   // Array de textos específicos para cada botón
   const buttonTexts = [
@@ -11,55 +9,16 @@ export const Gallery = (props) => {
     "Agenda Una Recoleccion",
     "Asesoria De Embalaje",
     "Solicita Tu Documentacion",
-    "Solicita Informacion De Tu Envio",
+    "Solicita Informacion ",
     "Solicita Comprobantes"
   ];
 
-  useEffect(() => {
-    if (props.data) {
-      // Configurar un intervalo para mostrar cada elemento con un retraso
-      const interval = setInterval(() => {
-        setVisibleItems((prev) => {
-          if (prev.length < props.data.length) {
-            return [...prev, prev.length];
-          } else {
-            clearInterval(interval);
-            return prev;
-          }
-        });
-      }, 300);
-    }
-
-    const galleryItems = document.querySelectorAll('.hover-bg');
-
-    // Listener para manejar el toque
-    const handleTouchStart = (event) => {
-      const currentIndex = [...galleryItems].indexOf(event.currentTarget);
-      setActiveItem((prev) => (prev === currentIndex ? null : currentIndex));
-    };
-
-    // Agregar el listener solo una vez al montar el componente
-    galleryItems.forEach((item) => {
-      item.addEventListener('touchstart', handleTouchStart);
-    });
-
-    // Cerrar tarjeta activa al hacer clic fuera
-    const handleOutsideClick = (event) => {
-      if (!event.target.closest('.hover-bg')) {
-        setActiveItem(null);
-      }
-    };
-
-    document.addEventListener('click', handleOutsideClick);
-
-    // Limpieza de los listeners al desmontar el componente
-    return () => {
-      galleryItems.forEach((item) => {
-        item.removeEventListener('touchstart', handleTouchStart);
-      });
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, [props.data]);
+  const phonesNumbers = [
+    "+573125602484",
+    "+573219892602",
+  ]
+  
+   
 
   return (
     <div id="portfolio" className="text-center">
@@ -71,15 +30,14 @@ export const Gallery = (props) => {
           {props.data
             ? props.data.map((d, i) => (
                 <div
-                  key={`${d.title}-${i}`}
-                  className={`hover-bg ${visibleItems.includes(i) ? "fade-in" : "hidden"} ${
-                    activeItem === i ? "active" : ""
-                  }`}
+                key={`${d.title}-${i}`}
                 >
                   <Image 
                     title={d.title} 
                     smallImage={d.smallImage} 
-                    buttonText={buttonTexts[i] || "Contactar"} 
+                  buttonText={buttonTexts[i] || "Contactar"} 
+                  phoneNumber={phonesNumbers[i % phonesNumbers.length] }
+                  message={"¡Hola quiero realizar un envio internacional!"}
                   />
                 </div>
               ))
