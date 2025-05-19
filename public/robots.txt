@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Alllow:
+# Especificando tu sitemap para ayudar a los bots a indexar mejor
+Sitemap: https://vialogistic.com.co/sitemap.xml
